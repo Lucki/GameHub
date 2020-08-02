@@ -98,6 +98,48 @@
 					}
 				}
 			},
+			"vsync": {
+				"name": "Vsync",
+				"description": "Set Vsync for Vulkan and OpenGL.",
+				"type": "string",
+				"value": "${value}",
+				"presets": {
+					"default": {
+						"name": "Default",
+						"value": ""
+					},
+					"-1": {
+						"name": "-1",
+						"description": "OpenGL: Adaptive sync.",
+						"value": "-1"
+					},
+					"0": {
+						"name": "0",
+						"description": "OpenGL/Vulkan: Force off.",
+						"value": "0"
+					},
+					"1": {
+						"name": "1",
+						"description": "Vulkan: Mailbox mode - Vsync with uncapped framerate. OpenGL: Force on.",
+						"value": "1"
+					},
+					"2": {
+						"name": "2",
+						"description": "Vulkan: Traditional vsync with framerate capped to refresh rate. OpenGL: Half display refresh rate.",
+						"value": "2"
+					},
+					"3": {
+						"name": "3",
+						"description": "Vulkan: Adaptive vsync with tearing at low framerates. OpenGL: Third display refresh rate.",
+						"value": "3"
+					},
+					"4": {
+						"name": "4",
+						"description": "OpenGL: Quarter display refresh rate.",
+						"value": "4"
+					}
+				}
+			},
 			"glfinish": {
 				"name": "glFinish()",
 				"description": "OpenGL only",
