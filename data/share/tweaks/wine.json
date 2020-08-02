@@ -1,0 +1,32 @@
+[
+	{
+		"id": "wine_dlloverrides",
+		"name": "Apply custom overrides for DLLs",
+		"description": "Alter WINEDLLOVERRIDES",
+		"group": "Wine",
+		"applicable_to": {
+			"platforms": [
+				"windows"
+			],
+			"compat": [
+				"wine",
+				"proton"
+			]
+		},
+		"env": {
+			"WINEDLLOVERRIDES": "${option:common}"
+		},
+		"options": {
+			"common": {
+				"name": "Common convenience settings",
+				"description": "QOL",
+				"type": "list",
+				"seperator": ",",
+				"values": {
+					"winex11.drv=d": "Hides the prefix update dialog of Wine and the gecko install question.",
+					"winemenubuilder=d": "Prevent changing the filetype associations or adding menu entries/desktop links"
+				}
+			}
+		}
+	}
+]

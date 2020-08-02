@@ -5,7 +5,215 @@
 	"url": "https://github.com/flightlessmango/MangoHud",
 	"group": "Overlays",
 	"requires": {
-		"executables": ["mangohud"]
+		"executables": [
+			"mangohud"
+		]
 	},
-	"command": "mangohud ${command}"
+	"command": "mangohud ${command}",
+	"env": {
+		"MANGOHUD_CONFIG": "${option:read_cfg},${option:hud},${option:media_player},${option:vsync},${option:gl_vsync},${option:position},${option:fps_limit}"
+	},
+	"options": {
+		"general": {
+			"name": "HUD elements",
+			"description": "Select HUD elements to show",
+			"type": "list",
+			"seperator": ",",
+			"values": {
+				"arch": "Show if the application is 32 or 64 bit",
+				"core_load": "Display load & frequency per core",
+				"cpu_stats=0": "Hide CPU information",
+				"cpu_temp": "Display current CPU temperature",
+				"engine_version": "Display OpenGL or vulkan and vulkan-based render engine's version",
+				"frame_timing=0": "Hide the frame timing graph",
+				"gpu_stats=0": "Hide GPU information",
+				"gpu_temp": "Display current GPU temperature",
+				"gpu_core_clock": "Display GPU core frequency",
+				"gpu_mem_clock": "Display GPU memory frequency",
+				"histogram": "Change fps graph to histogram",
+				"io_read": "IO read for the app (not system)",
+				"io_write": "IO write for the app (not system)",
+				"no_display": "Disable / hide the hud by default",
+				"ram": "Display system ram usage",
+				"time": "Display the current system time",
+				"vram": "Display system vram usage",
+				"version": "Shows current mangohud version",
+				"vulkan_driver": "Displays used vulkan driver, radv/amdgpu-pro/amdvlk"
+			},
+			"presets": {
+				"default": {
+					"name": "Default",
+					"value": ""
+				},
+				"full": {
+					"name": "Full",
+					"description": "Enables most of the toggleable parameters",
+					"value": "full"
+				}
+			}
+		},
+		"media_player": {
+			"name": "Media player",
+			"description": "Display a media player",
+			"type": "string",
+			"value": "media_player,media_player_name=${value}",
+			"presets": {
+				"default": {
+					"name": "Default",
+					"value": ""
+				},
+				"spotify": {
+					"name": "Spotify",
+					"value": "media_player,media_player_name=spotify"
+				},
+				"audacious": {
+					"name": "Audacious",
+					"value": "media_player,media_player_name=audacious"
+				},
+				"cantata": {
+					"name": "Cantata",
+					"value": "media_player,media_player_name=cantata"
+				},
+				"vlc": {
+					"name": "VLC",
+					"value": "media_player,media_player_name=vlc"
+				}
+			}
+		},
+		"vsync": {
+			"name": "Vsync",
+			"description": "Set Vsync for Vulkan",
+			"presets": {
+				"default": {
+					"name": "Default",
+					"value": ""
+				},
+				"0": {
+					"name": "0",
+					"description": "Adaptive Vsync with tearing at low framerates.",
+					"value": "vsync=0"
+				},
+				"1": {
+					"name": "1",
+					"description": "Force off",
+					"value": "vsync=1"
+				},
+				"2": {
+					"name": "2",
+					"description": "Mailbox mode. Vsync with uncapped framerate.",
+					"value": "vsync=2"
+				},
+				"3": {
+					"name": "3",
+					"description": "Traditional Vsync with framerate capped to refresh rate.",
+					"value": "vsync=3"
+				}
+			}
+		},
+		"gl_vsync": {
+			"name": "OpenGL Vsync",
+			"description": "Set Vsync for OpenGL",
+			"type": "string",
+			"value": "gl_vsync=${value}",
+			"presets": {
+				"off": {
+					"name": "off",
+					"description": "Off",
+					"value": "gl_vsync=off"
+				},
+				"1": {
+					"name": "1",
+					"description": "Display refresh rate",
+					"value": "gl_vsync=1"
+				},
+				"2": {
+					"name": "2",
+					"description": "Half display refresh rate",
+					"value": "gl_vsync=2"
+				},
+				"4": {
+					"name": "4",
+					"description": "Quarter display refresh rate",
+					"value": "gl_vsync=4"
+				}
+			}
+		},
+		"position": {
+			"name": "Position",
+			"description": "Location of the hud",
+			"presets": {
+				"top-left": {
+					"name": "top-left",
+					"value": "position=top-left"
+				},
+				"top-right": {
+					"name": "top-right",
+					"value": "position=top-right"
+				},
+				"bottom-left": {
+					"name": "bottom-left",
+					"value": "position=bottom-left"
+				},
+				"bottom-right": {
+					"name": "bottom-right",
+					"value": "position=bottom-right"
+				},
+				"top-center": {
+					"name": "top-center",
+					"value": "position=top-center"
+				}
+			}
+		},
+		"fps_limit": {
+			"name": "FPS limit",
+			"description": "Limit the apps framerate",
+			"type": "string",
+			"value": "fps_limit=${value}",
+			"presets": {
+				"default": {
+					"name": "Off",
+					"value": ""
+				},
+				"240": {
+					"name": "240",
+					"description": "Limit to 240 FPS",
+					"value": "fps_limit=240"
+				},
+				"144": {
+					"name": "144",
+					"description": "Limit to 144 FPS",
+					"value": "fps_limit=144"
+				},
+				"120": {
+					"name": "120",
+					"description": "Limit to 120 FPS",
+					"value": "fps_limit=120"
+				},
+				"60": {
+					"name": "60",
+					"description": "Limit to 60 FPS",
+					"value": "fps_limit=60"
+				},
+				"30": {
+					"name": "30",
+					"description": "Limit to 30 FPS",
+					"value": "fps_limit=30"
+				}
+			}
+		},
+		"read_cfg": {
+			"name": "Read config files",
+			"description": "Also load config files",
+			"presets": {
+				"default": {
+					"name": "Default",
+					"value": ""
+				},
+				"read_cfg": {
+					"name": "Additionally load config files",
+					"value": "read_cfg"
+				}
+			}
+		}
+	}
 }

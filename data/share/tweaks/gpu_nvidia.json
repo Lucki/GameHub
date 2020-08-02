@@ -1,0 +1,82 @@
+[
+	{
+		"id": "gpu_nvidia_glthread",
+		"name": "NVIDIA: Threaded Optimizations",
+		"description": "Offload CPU computations to a worker thread",
+		"url": "https://download.nvidia.com/XFree86/Linux-x86_64/410.104/README/openglenvvariables.html",
+		"group": "GPU",
+		"requires": {
+			"kernel_modules": [
+				"nvidia"
+			]
+		},
+		"env": {
+			"__GL_THREADED_OPTIMIZATIONS": "1"
+		}
+	},
+	{
+		"id": "gpu_nvidia_gsync",
+		"name": "NVIDIA: G-SYNC",
+		"description": "Controls G-SYNC, also called “variable refresh rate”.",
+		"url": "https://download.nvidia.com/XFree86/Linux-x86_64/410.104/README/openglenvvariables.html",
+		"group": "GPU",
+		"requires": {
+			"kernel_modules": [
+				"nvidia"
+			]
+		},
+		"env": {
+			"__GL_GSYNC_ALLOWED": "${option:allowed}",
+			"__GL_SYNC_TO_VBLANK": "${option:vblank}"
+		},
+		"options": {
+			"allowed": {
+				"name": "Allowed",
+				"description": "This option controls whether G-SYNC, also called “variable refresh rate”, can be used.",
+				"presets": {
+					"0": {
+						"name": "0",
+						"description": "Disables G-SYNC",
+						"value": "0"
+					},
+					"1": {
+						"name": "1",
+						"description": "Allows G-SYNC to be used when possible",
+						"value": "1"
+					}
+				}
+			},
+			"vblank": {
+				"name": "vblank",
+				"description": "Sync to vblank",
+				"presets": {
+					"0": {
+						"name": "0",
+						"description": "Disabled, applications rendering faster than the maximum refresh rate will tear. This eliminates tearing for frame rates below the monitor's maximum refresh rate while minimizing latency for frame rates above it.",
+						"value": "0"
+					},
+					"1": {
+						"name": "1",
+						"description": "Enabled, the frame rate is limited to the monitor's maximum refresh rate to eliminate tearing completely.",
+						"value": "1"
+					}
+				}
+			}
+		}
+	},
+	{
+		"id": "gpu_nvidia_osd",
+		"name": "NVIDIA: Graphics API Visual Indicator",
+		"description": "Control whether the graphics API visual indicator is rendered on top of OpenGL and Vulkan applications",
+		"url": "https://download.nvidia.com/XFree86/Linux-x86_64/410.104/README/openglenvvariables.html",
+		"group": "Overlays",
+		"requires": {
+			"kernel_modules": [
+				"nvidia"
+			]
+		},
+		"env": {
+			"__GL_SHOW_GRAPHICS_OSD": "1"
+		}
+	}
+]

@@ -35,7 +35,7 @@
 				"default": {
 					"name": "Default",
 					"description": "Show name of GPU, driver version and frame rate",
-					"value": "devinfo,fps"
+					"value": "1"
 				},
 				"full": {
 					"name": "Full",
