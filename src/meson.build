@@ -196,6 +196,7 @@ sources = [
 	'ui/views/GameDetailsView/blocks/Playtime.vala',
 	'ui/views/GameDetailsView/blocks/Achievements.vala',
 	'ui/views/GameDetailsView/blocks/Description.vala',
+	'ui/views/GameDetailsView/blocks/EpicDetails.vala',
 	'ui/views/GameDetailsView/blocks/GOGDetails.vala',
 	'ui/views/GameDetailsView/blocks/SteamDetails.vala',
 	'ui/views/GameDetailsView/blocks/IGDBInfo.vala',
